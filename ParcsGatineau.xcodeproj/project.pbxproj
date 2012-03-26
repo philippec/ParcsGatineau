@@ -25,6 +25,8 @@
 		37C43ABF151FFF3E000BD5C8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C43A98151FFF3D000BD5C8 /* CoreData.framework */; };
 		37C43AC7151FFF3E000BD5C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37C43AC5151FFF3E000BD5C8 /* InfoPlist.strings */; };
 		37C43ACA151FFF3E000BD5C8 /* ParcsGatineauTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C43AC9151FFF3E000BD5C8 /* ParcsGatineauTests.m */; };
+		37C43AD51520026C000BD5C8 /* Equipement.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C43AD41520026C000BD5C8 /* Equipement.m */; };
+		37C43AD81520027B000BD5C8 /* Parc.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C43AD71520027B000BD5C8 /* Parc.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,25 +45,29 @@
 		37C43A94151FFF3D000BD5C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37C43A96151FFF3D000BD5C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		37C43A98151FFF3D000BD5C8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		37C43A9C151FFF3D000BD5C8 /* ParcsGatineau-Info.plist */ = {isa = PBXFileReference; path = "ParcsGatineau-Info.plist"; sourceTree = "<group>"; };
+		37C43A9C151FFF3D000BD5C8 /* ParcsGatineau-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ParcsGatineau-Info.plist"; sourceTree = "<group>"; };
 		37C43A9E151FFF3D000BD5C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		37C43AA0151FFF3D000BD5C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		37C43AA2151FFF3D000BD5C8 /* ParcsGatineau-Prefix.pch */ = {isa = PBXFileReference; path = "ParcsGatineau-Prefix.pch"; sourceTree = "<group>"; };
-		37C43AA3151FFF3D000BD5C8 /* PGAppDelegate.h */ = {isa = PBXFileReference; path = PGAppDelegate.h; sourceTree = "<group>"; };
+		37C43AA2151FFF3D000BD5C8 /* ParcsGatineau-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParcsGatineau-Prefix.pch"; sourceTree = "<group>"; };
+		37C43AA3151FFF3D000BD5C8 /* PGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGAppDelegate.h; sourceTree = "<group>"; };
 		37C43AA4151FFF3D000BD5C8 /* PGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGAppDelegate.m; sourceTree = "<group>"; };
 		37C43AA7151FFF3D000BD5C8 /* ParcsGatineau.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ParcsGatineau.xcdatamodel; sourceTree = "<group>"; };
-		37C43AA9151FFF3D000BD5C8 /* PGMasterViewController.h */ = {isa = PBXFileReference; path = PGMasterViewController.h; sourceTree = "<group>"; };
+		37C43AA9151FFF3D000BD5C8 /* PGMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGMasterViewController.h; sourceTree = "<group>"; };
 		37C43AAA151FFF3D000BD5C8 /* PGMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGMasterViewController.m; sourceTree = "<group>"; };
-		37C43AAC151FFF3D000BD5C8 /* PGDetailViewController.h */ = {isa = PBXFileReference; path = PGDetailViewController.h; sourceTree = "<group>"; };
+		37C43AAC151FFF3D000BD5C8 /* PGDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGDetailViewController.h; sourceTree = "<group>"; };
 		37C43AAD151FFF3D000BD5C8 /* PGDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGDetailViewController.m; sourceTree = "<group>"; };
 		37C43AB0151FFF3D000BD5C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PGMasterViewController.xib; sourceTree = "<group>"; };
 		37C43AB3151FFF3D000BD5C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PGDetailViewController.xib; sourceTree = "<group>"; };
 		37C43ABA151FFF3E000BD5C8 /* ParcsGatineauTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParcsGatineauTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C43ABB151FFF3E000BD5C8 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		37C43AC4151FFF3E000BD5C8 /* ParcsGatineauTests-Info.plist */ = {isa = PBXFileReference; path = "ParcsGatineauTests-Info.plist"; sourceTree = "<group>"; };
+		37C43AC4151FFF3E000BD5C8 /* ParcsGatineauTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ParcsGatineauTests-Info.plist"; sourceTree = "<group>"; };
 		37C43AC6151FFF3E000BD5C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		37C43AC8151FFF3E000BD5C8 /* ParcsGatineauTests.h */ = {isa = PBXFileReference; path = ParcsGatineauTests.h; sourceTree = "<group>"; };
+		37C43AC8151FFF3E000BD5C8 /* ParcsGatineauTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParcsGatineauTests.h; sourceTree = "<group>"; };
 		37C43AC9151FFF3E000BD5C8 /* ParcsGatineauTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParcsGatineauTests.m; sourceTree = "<group>"; };
+		37C43AD31520026C000BD5C8 /* Equipement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Equipement.h; sourceTree = "<group>"; };
+		37C43AD41520026C000BD5C8 /* Equipement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Equipement.m; sourceTree = "<group>"; };
+		37C43AD61520027B000BD5C8 /* Parc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parc.h; sourceTree = "<group>"; };
+		37C43AD71520027B000BD5C8 /* Parc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parc.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +139,10 @@
 				37C43AAF151FFF3D000BD5C8 /* PGMasterViewController.xib */,
 				37C43AB2151FFF3D000BD5C8 /* PGDetailViewController.xib */,
 				37C43AA6151FFF3D000BD5C8 /* ParcsGatineau.xcdatamodeld */,
+				37C43AD31520026C000BD5C8 /* Equipement.h */,
+				37C43AD41520026C000BD5C8 /* Equipement.m */,
+				37C43AD61520027B000BD5C8 /* Parc.h */,
+				37C43AD71520027B000BD5C8 /* Parc.m */,
 				37C43A9B151FFF3D000BD5C8 /* Supporting Files */,
 			);
 			path = ParcsGatineau;
@@ -281,6 +291,8 @@
 				37C43AA8151FFF3D000BD5C8 /* ParcsGatineau.xcdatamodeld in Sources */,
 				37C43AAB151FFF3D000BD5C8 /* PGMasterViewController.m in Sources */,
 				37C43AAE151FFF3D000BD5C8 /* PGDetailViewController.m in Sources */,
+				37C43AD51520026C000BD5C8 /* Equipement.m in Sources */,
+				37C43AD81520027B000BD5C8 /* Parc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

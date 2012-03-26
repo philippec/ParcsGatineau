@@ -9,6 +9,8 @@
 #import "PGAppDelegate.h"
 
 #import "PGMasterViewController.h"
+#import "Parc.h"
+#import "Equipement.h"
 
 @implementation PGAppDelegate
 
@@ -18,10 +20,53 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize navigationController = _navigationController;
 
+- (void)loadParks
+{
+    Parc *parc = [NSEntityDescription insertNewObjectForEntityForName:@"Parc" inManagedObjectContext:self.managedObjectContext];
+
+    parc.nom = @"Allen";
+    parc.secteur = @"Aylmer";
+    parc.adresse = @"Chemins McConnell et Allen";
+    parc.latitude = [NSNumber numberWithDouble: 45.4118272];
+    parc.longitude = [NSNumber numberWithDouble: -75.7840822];
+
+    NSMutableSet *equipements = [NSMutableSet setWithCapacity:0];
+    Equipement *e;
+
+    e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
+    e.nom = @"Ballon-panier";
+    [equipements addObject:e];
+    e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
+    e.nom = @"Chalet utilitaire";
+    [equipements addObject:e];
+    e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
+    e.nom = @"Courts de tennis";
+    [equipements addObject:e];
+    e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
+    e.nom = @"Gradin";
+    [equipements addObject:e];
+    e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
+    e.nom = @"Patinoire extérieure";
+    [equipements addObject:e];
+    e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
+    e.nom = @"Terrain de baseball";
+    [equipements addObject:e];
+    e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
+    e.nom = @"Terrain de soccer";
+    [equipements addObject:e];
+    
+    parc.equipements = equipements;
+
+    NSError *error;
+    if (![self.managedObjectContext save:&error])
+        NSLog(@"Erreur! %@", [error description]);
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    [self loadParks];
 
     PGMasterViewController *masterViewController = [[PGMasterViewController alloc] initWithNibName:@"PGMasterViewController" bundle:nil];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
@@ -115,7 +160,7 @@
     
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:storeURL options:nil error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          
