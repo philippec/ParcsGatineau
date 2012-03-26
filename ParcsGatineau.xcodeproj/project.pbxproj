@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37797BED15201793001697C2 /* Equipements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37797BE915201793001697C2 /* Equipements.plist */; };
+		37797BEE15201793001697C2 /* Parcs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37797BEB15201793001697C2 /* Parcs.plist */; };
 		37C43A93151FFF3D000BD5C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C43A92151FFF3D000BD5C8 /* UIKit.framework */; };
 		37C43A95151FFF3D000BD5C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C43A94151FFF3D000BD5C8 /* Foundation.framework */; };
 		37C43A97151FFF3D000BD5C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C43A96151FFF3D000BD5C8 /* CoreGraphics.framework */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37797BEA15201793001697C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Equipements.plist; sourceTree = "<group>"; };
+		37797BEC15201793001697C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Parcs.plist; sourceTree = "<group>"; };
 		37C43A8E151FFF3D000BD5C8 /* ParcsGatineau.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParcsGatineau.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C43A92151FFF3D000BD5C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37C43A94151FFF3D000BD5C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -151,6 +155,8 @@
 		37C43A9B151FFF3D000BD5C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				37797BE915201793001697C2 /* Equipements.plist */,
+				37797BEB15201793001697C2 /* Parcs.plist */,
 				37C43A9C151FFF3D000BD5C8 /* ParcsGatineau-Info.plist */,
 				37C43A9D151FFF3D000BD5C8 /* InfoPlist.strings */,
 				37C43AA0151FFF3D000BD5C8 /* main.m */,
@@ -252,6 +258,8 @@
 				37C43A9F151FFF3D000BD5C8 /* InfoPlist.strings in Resources */,
 				37C43AB1151FFF3D000BD5C8 /* PGMasterViewController.xib in Resources */,
 				37C43AB4151FFF3D000BD5C8 /* PGDetailViewController.xib in Resources */,
+				37797BED15201793001697C2 /* Equipements.plist in Resources */,
+				37797BEE15201793001697C2 /* Parcs.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +323,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		37797BE915201793001697C2 /* Equipements.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37797BEA15201793001697C2 /* en */,
+			);
+			name = Equipements.plist;
+			sourceTree = "<group>";
+		};
+		37797BEB15201793001697C2 /* Parcs.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37797BEC15201793001697C2 /* en */,
+			);
+			name = Parcs.plist;
+			sourceTree = "<group>";
+		};
 		37C43A9D151FFF3D000BD5C8 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -470,6 +494,7 @@
 				37C43ACF151FFF3E000BD5C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37C43AD0151FFF3E000BD5C8 /* Build configuration list for PBXNativeTarget "ParcsGatineauTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +503,7 @@
 				37C43AD2151FFF3E000BD5C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

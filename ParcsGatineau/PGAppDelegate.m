@@ -22,44 +22,69 @@
 
 - (void)loadParks
 {
-    Parc *parc = [NSEntityDescription insertNewObjectForEntityForName:@"Parc" inManagedObjectContext:self.managedObjectContext];
+    NSArray *parcsSrc = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Parcs" ofType:@"plist"]];
+    NSArray *equipementSrc = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Equipements" ofType:@"plist"]];
 
-    parc.nom = @"Allen";
-    parc.secteur = @"Aylmer";
-    parc.adresse = @"Chemins McConnell et Allen";
-    parc.latitude = [NSNumber numberWithDouble: 45.4118272];
-    parc.longitude = [NSNumber numberWithDouble: -75.7840822];
+    NSMutableArray *parcs = [NSMutableArray arrayWithCapacity:[parcsSrc count]];
 
-    NSMutableSet *equipements = [NSMutableSet setWithCapacity:0];
-    Equipement *e;
+    for (NSDictionary *unParc in parcsSrc)
+    {
+        Parc *parc = [NSEntityDescription insertNewObjectForEntityForName:@"Parc" inManagedObjectContext:self.managedObjectContext];
+        
+        parc.nom = [unParc valueForKey:@"nom"];
+        parc.secteur = [unParc valueForKey:@"secteur"];
+        parc.adresse = [unParc valueForKey:@"adresse"];
+        parc.latitude = [unParc valueForKey:@"latitude"];
+        parc.longitude = [unParc valueForKey:@"longitude"];
 
-    e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
-    e.nom = @"Ballon-panier";
-    [equipements addObject:e];
-    e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
-    e.nom = @"Chalet utilitaire";
-    [equipements addObject:e];
-    e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
-    e.nom = @"Courts de tennis";
-    [equipements addObject:e];
-    e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
-    e.nom = @"Gradin";
-    [equipements addObject:e];
-    e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
-    e.nom = @"Patinoire extérieure";
-    [equipements addObject:e];
-    e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
-    e.nom = @"Terrain de baseball";
-    [equipements addObject:e];
-    e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
-    e.nom = @"Terrain de soccer";
-    [equipements addObject:e];
-    
-    parc.equipements = equipements;
+        [parcs addObject:parc];
+    }
+
+    NSMutableArray *equipements = [NSMutableArray arrayWithCapacity:[parcs count]];
+    for (NSInteger i = 0; i < [parcs count]; i++)
+    {
+        NSMutableSet *s = [NSMutableSet setWithCapacity:0];
+        [equipements addObject:s];
+    }
+
+    for (NSDictionary *unEquipement in equipementSrc)
+    {
+        Equipement *e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
+        e.nom = [unEquipement valueForKey:@"installation"];
+        NSInteger identifiant_parc = [[unEquipement valueForKey:@"identifiant_parc"] intValue];
+        NSAssert(identifiant_parc > 0, @"identifiant_parc ne peux être < 0: %d", identifiant_parc);
+        NSAssert(identifiant_parc <= [equipements count], @"identifiant_parc ne peux être > %d: %d", [equipements count], identifiant_parc);
+        NSMutableSet *s = [equipements objectAtIndex:identifiant_parc - 1];
+        [s addObject:e];
+    }
+
+    for (NSInteger i = 0; i < [equipements count]; i++)
+    {
+        Parc *p = [parcs objectAtIndex:i];
+        NSMutableSet *s = [equipements objectAtIndex:i];
+        p.equipements = s;
+    }
 
     NSError *error;
     if (![self.managedObjectContext save:&error])
         NSLog(@"Erreur! %@", [error description]);
+}
+
+- (void)printParks
+{
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Parc" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+
+    NSError *error = nil;
+    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if (array == nil)
+    {
+        NSLog(@"Erreur! %@", [error description]);
+        return;
+    }
+    for (id obj in array)
+        NSLog(@"%@", [obj description]);
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -67,6 +92,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     [self loadParks];
+    [self printParks];
 
     PGMasterViewController *masterViewController = [[PGMasterViewController alloc] initWithNibName:@"PGMasterViewController" bundle:nil];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
