@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		37C43A93151FFF3D000BD5C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C43A92151FFF3D000BD5C8 /* UIKit.framework */; };
+		37C43A95151FFF3D000BD5C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C43A94151FFF3D000BD5C8 /* Foundation.framework */; };
+		37C43A97151FFF3D000BD5C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C43A96151FFF3D000BD5C8 /* CoreGraphics.framework */; };
+		37C43A99151FFF3D000BD5C8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C43A98151FFF3D000BD5C8 /* CoreData.framework */; };
+		37C43A9F151FFF3D000BD5C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37C43A9D151FFF3D000BD5C8 /* InfoPlist.strings */; };
+		37C43AA1151FFF3D000BD5C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C43AA0151FFF3D000BD5C8 /* main.m */; };
+		37C43AA5151FFF3D000BD5C8 /* PGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C43AA4151FFF3D000BD5C8 /* PGAppDelegate.m */; };
+		37C43AA8151FFF3D000BD5C8 /* ParcsGatineau.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37C43AA6151FFF3D000BD5C8 /* ParcsGatineau.xcdatamodeld */; };
+		37C43AAB151FFF3D000BD5C8 /* PGMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C43AAA151FFF3D000BD5C8 /* PGMasterViewController.m */; };
+		37C43AAE151FFF3D000BD5C8 /* PGDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C43AAD151FFF3D000BD5C8 /* PGDetailViewController.m */; };
+		37C43AB1151FFF3D000BD5C8 /* PGMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C43AAF151FFF3D000BD5C8 /* PGMasterViewController.xib */; };
+		37C43AB4151FFF3D000BD5C8 /* PGDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C43AB2151FFF3D000BD5C8 /* PGDetailViewController.xib */; };
+		37C43ABC151FFF3E000BD5C8 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C43ABB151FFF3E000BD5C8 /* SenTestingKit.framework */; };
+		37C43ABD151FFF3E000BD5C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C43A92151FFF3D000BD5C8 /* UIKit.framework */; };
+		37C43ABE151FFF3E000BD5C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C43A94151FFF3D000BD5C8 /* Foundation.framework */; };
+		37C43ABF151FFF3E000BD5C8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C43A98151FFF3D000BD5C8 /* CoreData.framework */; };
+		37C43AC7151FFF3E000BD5C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37C43AC5151FFF3E000BD5C8 /* InfoPlist.strings */; };
+		37C43ACA151FFF3E000BD5C8 /* ParcsGatineauTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C43AC9151FFF3E000BD5C8 /* ParcsGatineauTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		37C43AC0151FFF3E000BD5C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37C43A85151FFF3D000BD5C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37C43A8D151FFF3D000BD5C8;
+			remoteInfo = ParcsGatineau;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		37C43A8E151FFF3D000BD5C8 /* ParcsGatineau.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParcsGatineau.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C43A92151FFF3D000BD5C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		37C43A94151FFF3D000BD5C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		37C43A96151FFF3D000BD5C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		37C43A98151FFF3D000BD5C8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		37C43A9C151FFF3D000BD5C8 /* ParcsGatineau-Info.plist */ = {isa = PBXFileReference; path = "ParcsGatineau-Info.plist"; sourceTree = "<group>"; };
+		37C43A9E151FFF3D000BD5C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		37C43AA0151FFF3D000BD5C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		37C43AA2151FFF3D000BD5C8 /* ParcsGatineau-Prefix.pch */ = {isa = PBXFileReference; path = "ParcsGatineau-Prefix.pch"; sourceTree = "<group>"; };
+		37C43AA3151FFF3D000BD5C8 /* PGAppDelegate.h */ = {isa = PBXFileReference; path = PGAppDelegate.h; sourceTree = "<group>"; };
+		37C43AA4151FFF3D000BD5C8 /* PGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGAppDelegate.m; sourceTree = "<group>"; };
+		37C43AA7151FFF3D000BD5C8 /* ParcsGatineau.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ParcsGatineau.xcdatamodel; sourceTree = "<group>"; };
+		37C43AA9151FFF3D000BD5C8 /* PGMasterViewController.h */ = {isa = PBXFileReference; path = PGMasterViewController.h; sourceTree = "<group>"; };
+		37C43AAA151FFF3D000BD5C8 /* PGMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGMasterViewController.m; sourceTree = "<group>"; };
+		37C43AAC151FFF3D000BD5C8 /* PGDetailViewController.h */ = {isa = PBXFileReference; path = PGDetailViewController.h; sourceTree = "<group>"; };
+		37C43AAD151FFF3D000BD5C8 /* PGDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGDetailViewController.m; sourceTree = "<group>"; };
+		37C43AB0151FFF3D000BD5C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PGMasterViewController.xib; sourceTree = "<group>"; };
+		37C43AB3151FFF3D000BD5C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PGDetailViewController.xib; sourceTree = "<group>"; };
+		37C43ABA151FFF3E000BD5C8 /* ParcsGatineauTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParcsGatineauTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C43ABB151FFF3E000BD5C8 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		37C43AC4151FFF3E000BD5C8 /* ParcsGatineauTests-Info.plist */ = {isa = PBXFileReference; path = "ParcsGatineauTests-Info.plist"; sourceTree = "<group>"; };
+		37C43AC6151FFF3E000BD5C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		37C43AC8151FFF3E000BD5C8 /* ParcsGatineauTests.h */ = {isa = PBXFileReference; path = ParcsGatineauTests.h; sourceTree = "<group>"; };
+		37C43AC9151FFF3E000BD5C8 /* ParcsGatineauTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParcsGatineauTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		37C43A8B151FFF3D000BD5C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37C43A93151FFF3D000BD5C8 /* UIKit.framework in Frameworks */,
+				37C43A95151FFF3D000BD5C8 /* Foundation.framework in Frameworks */,
+				37C43A97151FFF3D000BD5C8 /* CoreGraphics.framework in Frameworks */,
+				37C43A99151FFF3D000BD5C8 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37C43AB6151FFF3D000BD5C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37C43ABC151FFF3E000BD5C8 /* SenTestingKit.framework in Frameworks */,
+				37C43ABD151FFF3E000BD5C8 /* UIKit.framework in Frameworks */,
+				37C43ABE151FFF3E000BD5C8 /* Foundation.framework in Frameworks */,
+				37C43ABF151FFF3E000BD5C8 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		37C43A83151FFF3D000BD5C8 = {
+			isa = PBXGroup;
+			children = (
+				37C43A9A151FFF3D000BD5C8 /* ParcsGatineau */,
+				37C43AC2151FFF3E000BD5C8 /* ParcsGatineauTests */,
+				37C43A91151FFF3D000BD5C8 /* Frameworks */,
+				37C43A8F151FFF3D000BD5C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		37C43A8F151FFF3D000BD5C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37C43A8E151FFF3D000BD5C8 /* ParcsGatineau.app */,
+				37C43ABA151FFF3E000BD5C8 /* ParcsGatineauTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		37C43A91151FFF3D000BD5C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37C43A92151FFF3D000BD5C8 /* UIKit.framework */,
+				37C43A94151FFF3D000BD5C8 /* Foundation.framework */,
+				37C43A96151FFF3D000BD5C8 /* CoreGraphics.framework */,
+				37C43A98151FFF3D000BD5C8 /* CoreData.framework */,
+				37C43ABB151FFF3E000BD5C8 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37C43A9A151FFF3D000BD5C8 /* ParcsGatineau */ = {
+			isa = PBXGroup;
+			children = (
+				37C43AA3151FFF3D000BD5C8 /* PGAppDelegate.h */,
+				37C43AA4151FFF3D000BD5C8 /* PGAppDelegate.m */,
+				37C43AA9151FFF3D000BD5C8 /* PGMasterViewController.h */,
+				37C43AAA151FFF3D000BD5C8 /* PGMasterViewController.m */,
+				37C43AAC151FFF3D000BD5C8 /* PGDetailViewController.h */,
+				37C43AAD151FFF3D000BD5C8 /* PGDetailViewController.m */,
+				37C43AAF151FFF3D000BD5C8 /* PGMasterViewController.xib */,
+				37C43AB2151FFF3D000BD5C8 /* PGDetailViewController.xib */,
+				37C43AA6151FFF3D000BD5C8 /* ParcsGatineau.xcdatamodeld */,
+				37C43A9B151FFF3D000BD5C8 /* Supporting Files */,
+			);
+			path = ParcsGatineau;
+			sourceTree = "<group>";
+		};
+		37C43A9B151FFF3D000BD5C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				37C43A9C151FFF3D000BD5C8 /* ParcsGatineau-Info.plist */,
+				37C43A9D151FFF3D000BD5C8 /* InfoPlist.strings */,
+				37C43AA0151FFF3D000BD5C8 /* main.m */,
+				37C43AA2151FFF3D000BD5C8 /* ParcsGatineau-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		37C43AC2151FFF3E000BD5C8 /* ParcsGatineauTests */ = {
+			isa = PBXGroup;
+			children = (
+				37C43AC8151FFF3E000BD5C8 /* ParcsGatineauTests.h */,
+				37C43AC9151FFF3E000BD5C8 /* ParcsGatineauTests.m */,
+				37C43AC3151FFF3E000BD5C8 /* Supporting Files */,
+			);
+			path = ParcsGatineauTests;
+			sourceTree = "<group>";
+		};
+		37C43AC3151FFF3E000BD5C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				37C43AC4151FFF3E000BD5C8 /* ParcsGatineauTests-Info.plist */,
+				37C43AC5151FFF3E000BD5C8 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		37C43A8D151FFF3D000BD5C8 /* ParcsGatineau */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37C43ACD151FFF3E000BD5C8 /* Build configuration list for PBXNativeTarget "ParcsGatineau" */;
+			buildPhases = (
+				37C43A8A151FFF3D000BD5C8 /* Sources */,
+				37C43A8B151FFF3D000BD5C8 /* Frameworks */,
+				37C43A8C151FFF3D000BD5C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ParcsGatineau;
+			productName = ParcsGatineau;
+			productReference = 37C43A8E151FFF3D000BD5C8 /* ParcsGatineau.app */;
+			productType = "com.apple.product-type.application";
+		};
+		37C43AB9151FFF3D000BD5C8 /* ParcsGatineauTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37C43AD0151FFF3E000BD5C8 /* Build configuration list for PBXNativeTarget "ParcsGatineauTests" */;
+			buildPhases = (
+				37C43AB5151FFF3D000BD5C8 /* Sources */,
+				37C43AB6151FFF3D000BD5C8 /* Frameworks */,
+				37C43AB7151FFF3D000BD5C8 /* Resources */,
+				37C43AB8151FFF3D000BD5C8 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				37C43AC1151FFF3E000BD5C8 /* PBXTargetDependency */,
+			);
+			name = ParcsGatineauTests;
+			productName = ParcsGatineauTests;
+			productReference = 37C43ABA151FFF3E000BD5C8 /* ParcsGatineauTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		37C43A85151FFF3D000BD5C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PG;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 37C43A88151FFF3D000BD5C8 /* Build configuration list for PBXProject "ParcsGatineau" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 37C43A83151FFF3D000BD5C8;
+			productRefGroup = 37C43A8F151FFF3D000BD5C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				37C43A8D151FFF3D000BD5C8 /* ParcsGatineau */,
+				37C43AB9151FFF3D000BD5C8 /* ParcsGatineauTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		37C43A8C151FFF3D000BD5C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37C43A9F151FFF3D000BD5C8 /* InfoPlist.strings in Resources */,
+				37C43AB1151FFF3D000BD5C8 /* PGMasterViewController.xib in Resources */,
+				37C43AB4151FFF3D000BD5C8 /* PGDetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37C43AB7151FFF3D000BD5C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37C43AC7151FFF3E000BD5C8 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37C43AB8151FFF3D000BD5C8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		37C43A8A151FFF3D000BD5C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37C43AA1151FFF3D000BD5C8 /* main.m in Sources */,
+				37C43AA5151FFF3D000BD5C8 /* PGAppDelegate.m in Sources */,
+				37C43AA8151FFF3D000BD5C8 /* ParcsGatineau.xcdatamodeld in Sources */,
+				37C43AAB151FFF3D000BD5C8 /* PGMasterViewController.m in Sources */,
+				37C43AAE151FFF3D000BD5C8 /* PGDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37C43AB5151FFF3D000BD5C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37C43ACA151FFF3E000BD5C8 /* ParcsGatineauTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		37C43AC1151FFF3E000BD5C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37C43A8D151FFF3D000BD5C8 /* ParcsGatineau */;
+			targetProxy = 37C43AC0151FFF3E000BD5C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		37C43A9D151FFF3D000BD5C8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37C43A9E151FFF3D000BD5C8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		37C43AAF151FFF3D000BD5C8 /* PGMasterViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37C43AB0151FFF3D000BD5C8 /* en */,
+			);
+			name = PGMasterViewController.xib;
+			sourceTree = "<group>";
+		};
+		37C43AB2151FFF3D000BD5C8 /* PGDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37C43AB3151FFF3D000BD5C8 /* en */,
+			);
+			name = PGDetailViewController.xib;
+			sourceTree = "<group>";
+		};
+		37C43AC5151FFF3E000BD5C8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37C43AC6151FFF3E000BD5C8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		37C43ACB151FFF3E000BD5C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		37C43ACC151FFF3E000BD5C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		37C43ACE151FFF3E000BD5C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ParcsGatineau/ParcsGatineau-Prefix.pch";
+				INFOPLIST_FILE = "ParcsGatineau/ParcsGatineau-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		37C43ACF151FFF3E000BD5C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ParcsGatineau/ParcsGatineau-Prefix.pch";
+				INFOPLIST_FILE = "ParcsGatineau/ParcsGatineau-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		37C43AD1151FFF3E000BD5C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ParcsGatineau.app/ParcsGatineau";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ParcsGatineau/ParcsGatineau-Prefix.pch";
+				INFOPLIST_FILE = "ParcsGatineauTests/ParcsGatineauTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		37C43AD2151FFF3E000BD5C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ParcsGatineau.app/ParcsGatineau";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ParcsGatineau/ParcsGatineau-Prefix.pch";
+				INFOPLIST_FILE = "ParcsGatineauTests/ParcsGatineauTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		37C43A88151FFF3D000BD5C8 /* Build configuration list for PBXProject "ParcsGatineau" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37C43ACB151FFF3E000BD5C8 /* Debug */,
+				37C43ACC151FFF3E000BD5C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37C43ACD151FFF3E000BD5C8 /* Build configuration list for PBXNativeTarget "ParcsGatineau" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37C43ACE151FFF3E000BD5C8 /* Debug */,
+				37C43ACF151FFF3E000BD5C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		37C43AD0151FFF3E000BD5C8 /* Build configuration list for PBXNativeTarget "ParcsGatineauTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37C43AD1151FFF3E000BD5C8 /* Debug */,
+				37C43AD2151FFF3E000BD5C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		37C43AA6151FFF3D000BD5C8 /* ParcsGatineau.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				37C43AA7151FFF3D000BD5C8 /* ParcsGatineau.xcdatamodel */,
+			);
+			currentVersion = 37C43AA7151FFF3D000BD5C8 /* ParcsGatineau.xcdatamodel */;
+			path = ParcsGatineau.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 37C43A85151FFF3D000BD5C8 /* Project object */;
+}
