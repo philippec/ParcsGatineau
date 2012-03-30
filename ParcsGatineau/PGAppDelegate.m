@@ -22,47 +22,30 @@
 
 - (void)loadParks
 {
-    NSArray *parcsSrc = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Parcs" ofType:@"plist"]];
-    NSArray *equipementSrc = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Equipements" ofType:@"plist"]];
+    NSError *jsonParsingError;
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"markers" ofType:@"json"]];
+    NSArray *parcs = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&jsonParsingError];
 
-    NSMutableArray *parcs = [NSMutableArray arrayWithCapacity:[parcsSrc count]];
-
-    for (NSDictionary *unParc in parcsSrc)
+    for (NSDictionary *unParc in parcs)
     {
         Parc *parc = [NSEntityDescription insertNewObjectForEntityForName:@"Parc" inManagedObjectContext:self.managedObjectContext];
         
-        parc.nom = [unParc valueForKey:@"nom"];
-        parc.secteur = [unParc valueForKey:@"secteur"];
-        parc.adresse = [unParc valueForKey:@"adresse"];
-        parc.latitude = [unParc valueForKey:@"latitude"];
-        parc.longitude = [unParc valueForKey:@"longitude"];
+        parc.nom = [unParc valueForKey:@"name"];
+        parc.secteur = [unParc valueForKey:@"sector"];
+        parc.adresse = [unParc valueForKey:@"address"];
+        parc.latitude = [unParc valueForKey:@"lat"];
+        parc.longitude = [unParc valueForKey:@"lng"];
 
-        [parcs addObject:parc];
-    }
-
-    NSMutableArray *equipements = [NSMutableArray arrayWithCapacity:[parcs count]];
-    for (NSInteger i = 0; i < [parcs count]; i++)
-    {
+        NSArray *installations = [unParc valueForKey:@"installations"];
         NSMutableSet *s = [NSMutableSet setWithCapacity:0];
-        [equipements addObject:s];
-    }
-
-    for (NSDictionary *unEquipement in equipementSrc)
-    {
-        Equipement *e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
-        e.nom = [unEquipement valueForKey:@"installation"];
-        NSInteger identifiant_parc = [[unEquipement valueForKey:@"identifiant_parc"] intValue];
-        NSAssert(identifiant_parc > 0, @"identifiant_parc ne peux être < 0: %d", identifiant_parc);
-        NSAssert(identifiant_parc <= [equipements count], @"identifiant_parc ne peux être > %d: %d", [equipements count], identifiant_parc);
-        NSMutableSet *s = [equipements objectAtIndex:identifiant_parc - 1];
-        [s addObject:e];
-    }
-
-    for (NSInteger i = 0; i < [equipements count]; i++)
-    {
-        Parc *p = [parcs objectAtIndex:i];
-        NSMutableSet *s = [equipements objectAtIndex:i];
-        p.equipements = s;
+        for (NSString *uneInstallation in installations)
+        {
+            Equipement *e = [NSEntityDescription insertNewObjectForEntityForName:@"Equipement" inManagedObjectContext:self.managedObjectContext];
+            e.nom = uneInstallation;
+            [s addObject:e];
+        }
+        
+        parc.equipements = s;
     }
 
     NSError *error;
