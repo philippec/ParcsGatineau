@@ -52,6 +52,7 @@
 	//Initialize the toolbar
 	UIToolbar *toolbar = [[UIToolbar alloc] init];
 	toolbar.barStyle = UIBarStyleDefault;
+    toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     
 	//Set the toolbar to fit the width of the app.
 	[toolbar sizeToFit];
