@@ -15,6 +15,7 @@
 @interface PGMasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) PGDetailViewController *detailViewController;
+@property (assign, nonatomic) BOOL filtered;
 
 @property (strong, nonatomic) NSFetchedResultsController *currentFetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
