@@ -68,7 +68,7 @@
     
     [fetchRequest setSortDescriptors:sortDescriptors];
 
-    NSPredicate *equipmentPredicate = [NSPredicate predicateWithFormat:@"equipements.nom == %@", equipmentName];
+    NSPredicate *equipmentPredicate = [NSPredicate predicateWithFormat:@"equipements.nom CONTAINS %@", equipmentName];
     fetchRequest.predicate = equipmentPredicate;
     
     // Edit the section name key path and cache name if appropriate.
