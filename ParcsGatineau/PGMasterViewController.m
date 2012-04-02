@@ -46,6 +46,53 @@
     // Release any retained subviews of the main view.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+	
+	//Initialize the toolbar
+	UIToolbar *toolbar = [[UIToolbar alloc] init];
+	toolbar.barStyle = UIBarStyleDefault;
+    
+	//Set the toolbar to fit the width of the app.
+	[toolbar sizeToFit];
+    
+	//Caclulate the height of the toolbar
+	CGFloat toolbarHeight = [toolbar frame].size.height;
+    
+	//Get the bounds of the parent view
+	CGRect rootViewBounds = self.parentViewController.view.bounds;
+    
+	//Get the height of the parent view.
+	CGFloat rootViewHeight = CGRectGetHeight(rootViewBounds);
+    
+	//Get the width of the parent view,
+	CGFloat rootViewWidth = CGRectGetWidth(rootViewBounds);
+    
+	//Create a rectangle for the toolbar
+	CGRect rectArea = CGRectMake(0, rootViewHeight - toolbarHeight, rootViewWidth, toolbarHeight);
+    
+	//Reposition and resize the receiver
+	[toolbar setFrame:rectArea];
+	
+	//Create a button
+	UIBarButtonItem *infoButton = [[UIBarButtonItem alloc] 
+								   initWithTitle:@"Info" style:UIBarButtonItemStyleBordered target:self action:@selector(info_clicked:)];
+	
+	[toolbar setItems:[NSArray arrayWithObjects:infoButton,nil]];
+    
+	//Add the toolbar as a subview to the navigation controller.
+	[self.navigationController.view addSubview:toolbar];
+	
+	//Reload the table view
+	[self.tableView reloadData];
+	
+}
+
+- (void) info_clicked:(id)sender
+{
+    NSLog(@"info clicked");
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
