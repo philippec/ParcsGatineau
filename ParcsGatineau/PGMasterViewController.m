@@ -151,7 +151,8 @@
         return _currentFetchedResultsController;
     }
 
-    _currentFetchedResultsController = [Parc fetchedResultsControllerBySector:self.managedObjectContext];
+    //_currentFetchedResultsController = [Parc fetchedResultsControllerBySector:self.managedObjectContext];
+    _currentFetchedResultsController = [Parc fetchedResultsControllerBySector:self.managedObjectContext forEquipement:@"Ballon-panier"];
     _currentFetchedResultsController.delegate = self;
     
     return _currentFetchedResultsController;

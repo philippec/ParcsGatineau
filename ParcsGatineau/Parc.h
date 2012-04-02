@@ -29,5 +29,6 @@
 - (void)removeEquipements:(NSSet *)values;
 
 + (NSFetchedResultsController *)fetchedResultsControllerBySector:(NSManagedObjectContext *)context;
++ (NSFetchedResultsController *)fetchedResultsControllerBySector:(NSManagedObjectContext *)context forEquipement:(NSString *)equipmentName;
 
 @end
