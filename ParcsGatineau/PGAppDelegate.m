@@ -75,7 +75,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     [self loadParks];
-    [self printParks];
+    //[self printParks];
 
     PGMasterViewController *masterViewController = [[PGMasterViewController alloc] initWithNibName:@"PGMasterViewController" bundle:nil];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
