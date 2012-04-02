@@ -38,17 +38,7 @@
 
     UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(toggleFilter:)];
     self.navigationItem.rightBarButtonItem = filterButton;
-}
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-	
 	//Initialize the toolbar
 	UIToolbar *toolbar = [[UIToolbar alloc] init];
 	toolbar.barStyle = UIBarStyleDefault;
@@ -59,7 +49,12 @@
     
 	//Caclulate the height of the toolbar
 	CGFloat toolbarHeight = [toolbar frame].size.height;
-    
+
+    // Add a footer to the tableview so the last cell is not hidden behind the toolbar
+	UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, toolbarHeight)];
+	footer.backgroundColor = [UIColor clearColor];
+	self.tableView.tableFooterView = footer;
+
 	//Get the bounds of the parent view
 	CGRect rootViewBounds = self.parentViewController.view.bounds;
     
@@ -75,7 +70,7 @@
 	//Reposition and resize the receiver
 	[toolbar setFrame:rectArea];
 	
-	//Create a button
+	// Create a button
 	UIBarButtonItem *infoButton = [[UIBarButtonItem alloc] 
 								   initWithTitle:@"Info" style:UIBarButtonItemStyleBordered target:self action:@selector(info_clicked:)];
 	
@@ -83,10 +78,12 @@
     
 	//Add the toolbar as a subview to the navigation controller.
 	[self.navigationController.view addSubview:toolbar];
-	
-	//Reload the table view
-	[self.tableView reloadData];
-	
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
 }
 
 - (void) info_clicked:(id)sender
