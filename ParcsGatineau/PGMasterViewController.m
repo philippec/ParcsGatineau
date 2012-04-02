@@ -70,11 +70,15 @@
 	//Reposition and resize the receiver
 	[toolbar setFrame:rectArea];
 	
-	// Create a button
-	UIBarButtonItem *infoButton = [[UIBarButtonItem alloc] 
-								   initWithTitle:@"Info" style:UIBarButtonItemStyleBordered target:self action:@selector(info_clicked:)];
+	// Create the buttons
+	UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
+    UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects: @"Secteurs", @"Distance", nil]];
+    segment.segmentedControlStyle = UISegmentedControlStyleBar;
+    segment.selectedSegmentIndex = 0;
+    [segment addTarget:self action:@selector(segmentClicked:) forControlEvents:UIControlEventValueChanged];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:segment];
 	
-	[toolbar setItems:[NSArray arrayWithObjects:infoButton,nil]];
+	[toolbar setItems:[NSArray arrayWithObjects:spacer, item, spacer, nil]];
     
 	//Add the toolbar as a subview to the navigation controller.
 	[self.navigationController.view addSubview:toolbar];
@@ -86,9 +90,9 @@
     // Release any retained subviews of the main view.
 }
 
-- (void) info_clicked:(id)sender
+- (void) segmentClicked:(UISegmentedControl*)sender
 {
-    NSLog(@"info clicked");
+    NSLog(@"segment %d clicked", [sender selectedSegmentIndex]);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
