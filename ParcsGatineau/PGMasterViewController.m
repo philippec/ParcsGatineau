@@ -17,7 +17,7 @@
 @implementation PGMasterViewController
 
 @synthesize detailViewController = _detailViewController;
-@synthesize fetchedResultsController = __fetchedResultsController;
+@synthesize currentFetchedResultsController = _currentFetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -52,8 +52,8 @@
 
 - (void)insertNewObject:(id)sender
 {
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    NSManagedObjectContext *context = [self.currentFetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.currentFetchedResultsController fetchRequest] entity];
     NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
     // If appropriate, configure the new managed object.
@@ -74,18 +74,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.fetchedResultsController sections] count];
+    return [[self.currentFetchedResultsController sections] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
 {
-    Parc *parc = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+    Parc *parc = [self.currentFetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
     return parc.secteur;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.currentFetchedResultsController sections] objectAtIndex:section];
     return [sectionInfo numberOfObjects];
 }
 
@@ -113,8 +113,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        NSManagedObjectContext *context = [self.currentFetchedResultsController managedObjectContext];
+        [context deleteObject:[self.currentFetchedResultsController objectAtIndexPath:indexPath]];
         
         NSError *error = nil;
         if (![context save:&error]) {
@@ -137,49 +137,24 @@
     if (!self.detailViewController) {
         self.detailViewController = [[PGDetailViewController alloc] initWithNibName:@"PGDetailViewController" bundle:nil];
     }
-    NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    NSManagedObject *object = [[self currentFetchedResultsController] objectAtIndexPath:indexPath];
     self.detailViewController.detailItem = object;
     [self.navigationController pushViewController:self.detailViewController animated:YES];
 }
 
 #pragma mark - Fetched results controller
 
-- (NSFetchedResultsController *)fetchedResultsController
+- (NSFetchedResultsController *)currentFetchedResultsController
 {
-    if (__fetchedResultsController != nil) {
-        return __fetchedResultsController;
+    if (_currentFetchedResultsController != nil)
+    {
+        return _currentFetchedResultsController;
     }
+
+    _currentFetchedResultsController = [Parc fetchedResultsControllerBySector:self.managedObjectContext];
+    _currentFetchedResultsController.delegate = self;
     
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Parc" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"secteur" ascending:YES];
-    NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nom" ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nameDescriptor, nil];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"secteur" cacheName:@"Master"];
-    aFetchedResultsController.delegate = self;
-    self.fetchedResultsController = aFetchedResultsController;
-    
-	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) {
-	     // Replace this implementation with code to handle the error appropriately.
-	     // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
-    
-    return __fetchedResultsController;
+    return _currentFetchedResultsController;
 }    
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
@@ -244,7 +219,7 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSManagedObject *object = [self.currentFetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[object valueForKey:@"nom"] description];
 }
 

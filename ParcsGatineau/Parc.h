@@ -28,4 +28,6 @@
 - (void)addEquipements:(NSSet *)values;
 - (void)removeEquipements:(NSSet *)values;
 
++ (NSFetchedResultsController *)fetchedResultsControllerBySector:(NSManagedObjectContext *)context;
+
 @end

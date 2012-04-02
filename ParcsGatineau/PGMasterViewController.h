@@ -16,7 +16,7 @@
 
 @property (strong, nonatomic) PGDetailViewController *detailViewController;
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController *currentFetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end
